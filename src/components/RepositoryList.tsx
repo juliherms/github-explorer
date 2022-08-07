@@ -2,8 +2,14 @@ import { useState, useEffect } from 'react';
 import { RepositoryItem } from "./RepositoryItem";
 import '../styles/repositories.scss';
 
+interface Repository {
+    name: string;
+    description: string;
+    html_url: string;
+}
+
 export function RepositoryList(){
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     //toda vez que repositories mudar a funcao do userEffect será executada por causa do [repositories]
     //Com o array de dependencias vazio [], ele somente será chamada uma única vez
